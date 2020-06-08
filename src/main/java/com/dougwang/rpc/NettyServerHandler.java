@@ -43,7 +43,7 @@ public class NettyServerHandler  extends ChannelInboundHandlerAdapter {
                 String resp =  generatorFrame("im jiaduo ", reqId);
 
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(10000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

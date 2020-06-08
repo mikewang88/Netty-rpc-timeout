@@ -1,5 +1,8 @@
 package com.dougwang.rpc;
 
+import com.dougwang.timingwheel.TimeOutThread;
+import com.dougwang.timingwheel.Timer;
+import com.dougwang.timingwheel.TimerTask;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -107,6 +110,11 @@ public class RpcClient {
 
             // 5.保存future对象
             FutureMapUtil.put(reqId, future);
+
+            //addd-----
+            Timer timer = new Timer();
+            TimerTask timerTask2 = new TimerTask(3000, new TimeOutThread(reqId));
+            timer.addTask(timerTask2);
 
             return future;
         }

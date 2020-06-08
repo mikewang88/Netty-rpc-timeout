@@ -16,6 +16,10 @@ public class FutureMapUtil {
         futureMap.put(id, future);
     }
 
+    public static CompletableFuture<String> get(String id) {
+       return futureMap.get(id);
+    }
+
     public static CompletableFuture remove(String id) {
         return futureMap.remove(id);
     }

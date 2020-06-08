@@ -1,5 +1,9 @@
 package com.dougwang.rpc;
 
+import com.dougwang.timingwheel.TimeOutThread;
+import com.dougwang.timingwheel.Timer;
+import com.dougwang.timingwheel.TimerTask;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -13,8 +17,8 @@ public class CallTest {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
-        // 1.同步调用
-        System.out.println(rpcClient.rpcSyncCall("who are you"));
+//        // 1.同步调用
+//        System.out.println(rpcClient.rpcSyncCall("who are you"));
 
         // 2.发起远程调用异步，并注册回调，马上返回
         CompletableFuture<String> future = rpcClient.rpcAsyncCall("who are you");
@@ -29,6 +33,7 @@ public class CallTest {
         });
 
         System.out.println("---async rpc call over");
+
 
     }
 }
